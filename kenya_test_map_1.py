@@ -4,12 +4,12 @@ import plotly.graph_objects as go
 import json
 
 # Load data
-data = pd.read_csv('Kenya_Court_Count.csv')
-df_superior = pd.read_csv('superior_courts.csv')
-df_high = pd.read_csv('high_courts.csv')
-df_subordinate = pd.read_csv('subordinate_courts.csv')
-df_empLab = pd.read_csv('Emp&Lab.csv')
-df_elc = pd.read_csv('ELC_courts copy.csv')
+data = pd.read_csv('./kenya_courts_locations/Kenya_Court_Count.csv')
+df_superior = pd.read_csv('./kenya_courts_locations/superior_courts.csv')
+df_high = pd.read_csv('./kenya_courts_locations/high_courts.csv')
+df_subordinate = pd.read_csv('./kenya_courts_locations/subordinate_courts.csv')
+df_empLab = pd.read_csv('./kenya_courts_locations/EmpLab_courts.csv')
+df_elc = pd.read_csv('./kenya_courts_locations/EnvtLand_courts.csv')
 
 # Clean column names
 data.columns = data.columns.str.strip()
