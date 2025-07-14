@@ -24,7 +24,7 @@ fig = px.choropleth(
     featureidkey="properties.COUNTY_NAM",
     locations='County',
     color='Total Courts',
-    color_continuous_scale='Greens', # tested Viridis
+    color_continuous_scale='Greens', # tested Viridis Pastel1_03 sunset
     title='Number of Courts per County in Kenya',
 )
 
@@ -35,7 +35,7 @@ fig.add_trace(go.Scattergeo(
     text=df_superior['Court Name'],
     mode='markers',
     marker=dict(size=10, color='red'),
-    name='Superior Courts'
+    name='Superior Courts(Supreme court and CoA )'
 ))
 
 fig.add_trace(go.Scattergeo(
@@ -62,18 +62,20 @@ fig.add_trace(go.Scattergeo(
     text=df_empLab['Court Name'],
     mode='markers',
     marker=dict(size=8, color='orange', symbol = 'x'),
-    name='Employement and Land Courts'
+    name='Employement and Labour Courts'
 ))
 
 fig.add_trace(go.Scattergeo(
     lon=df_elc['Longitude'],
     lat=df_elc['Latitude'],
-    text=df_elc['Court Name'],
+    text=[
+        f"<b>{name}</b><br>Type: Environment & Land Court"
+        for name in df_elc['Court Name']
+    ],
     mode='markers',
     marker=dict(size=8, color='green', symbol = 'triangle-up', line=dict(width=0.5, color='darkslategray')),
     name='Environment and Land Courts'
 ))
-
 
 fig.update_geos(
     visible=False,
