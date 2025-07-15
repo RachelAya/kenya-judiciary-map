@@ -170,5 +170,5 @@ m.get_root().html.add_child(layer_style)
 folium.LayerControl(collapsed=False, position='bottomright').add_to(m)
 
 # Save the map
-m.save('kenya_court_map.html')
+m.save('index.html')
 print("Map saved successfully!")
